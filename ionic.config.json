@@ -1,0 +1,7 @@
+{
+  "name": "reqres-ronan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
