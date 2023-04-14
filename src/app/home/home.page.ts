@@ -1,3 +1,4 @@
+import { UsersService } from './../services/users.service';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
@@ -9,5 +10,12 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private usersService: UsersService) {
+    this.buscarUsuarios();
+  }
+  buscarUsuarios() {
+    this.usersService.getAll().subscribe((dados) => {
+      console.log(dados);
+    });
+  }
 }
