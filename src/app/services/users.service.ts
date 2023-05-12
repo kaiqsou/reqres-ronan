@@ -21,8 +21,8 @@ export class UsersService {
   }
 
   getAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.url).pipe(
-      map((retorno) => retorno),
+    return this.http.get<Response>(this.url).pipe(
+      map((retorno) => retorno.data),
       catchError((erro) => this.exibirErro(erro))
     );
   }
@@ -44,7 +44,7 @@ export class UsersService {
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
-  
+
   exibirErro(erro: any): Observable<any> {
     const titulo = `Erro de conexão!`;
     const msg = `Verifique sua Conexão ou informe esse erro ao suporte: ${erro.status}`;

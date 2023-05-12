@@ -5,5 +5,5 @@ export class Response {
   perpage : number | undefined;
   total : number | undefined;
   total_pages : number | undefined;
-  data: User[] | undefined;
+  data!: User[];
 }

@@ -14,9 +14,9 @@ import { FormsModule } from '@angular/forms';
   imports: [IonicModule, CommonModule, RouterLink, FormsModule],
 })
 export class HomePage {
-   listaUsuarios : User[] = [];
+  listaUsuarios : User[] = [];
   constructor(private usersService: UsersService, private router: Router) {
-    
+
   }
 
   ionViewWillEnter() {
@@ -28,4 +28,10 @@ export class HomePage {
       this.listaUsuarios = dados as User[];
     });
   }
+
+  alterarUsuario(id: number){
+    this.router.navigateByUrl(`/alterar-usuario/${id}`)
+  }
+
+  removerUsuario(id: number){}
 }

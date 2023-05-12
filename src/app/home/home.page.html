@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Usuarios
+      Usuários
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,22 @@
   <ion-item *ngFor="let usuario of listaUsuarios">
 
     <ion-label>
-      <h1>{{usuario.email}}</h1>
+      <img src="{{usuario.avatar}}" alt="avatar" class="redondinho">
+      <h1>{{usuario.first_name}} {{usuario.last_name}}</h1>
+      <p>{{usuario.email}}</p>
     </ion-label>
+
+    <ion-button (click)="alterarUsuario(usuario.id!)" color="warning">
+      <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="removerUsuario(usuario.id!)" color="danger">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-button>
+
   </ion-item>
+
+  <ion-button routerLink="/criar-usuario">
+    Adicionar usuário
+  </ion-button>
 </ion-content>
